@@ -1,51 +1,13 @@
 
-
-
-@font-face {
-	font-family: "XCharter-Regular";
-	font-weight: normal;
-	font-style: normal;
-	src: url("font/XCharter-Roman.otf") format("opentype");
-}
-@font-face {
-	font-family: "XCharter-Italic";
-	font-weight: normal;
-	font-style: italic;
-	src: url("font/XCharter-Italic.otf") format("opentype");
-}
-@font-face {
-	font-family: "XCharter-Bold";
-	font-weight: bold;
-	font-style: normal;
-	src: url("font/XCharter-Bold.otf") format("opentype");
-}
-@font-face {
-	font-family: "XCharter-BoldItalic";
-	font-weight: bold;
-	font-style: italic;
-	src: url("font/XCharter-BoldItalic.otf") format("opentype");
-}
-
-@font-face {
-	font-family: "XCharter-Oblique";
-	font-weight: normal;
-	font-style: oblique;
-	src: url("font/XCharter-Slanted.otf") format("opentype");
-}
-@font-face {
-	font-family: "XCharter-BoldOblique";
-	font-weight: bold;
-	font-style: oblique;
-	src: url("font/XCharter-BoldSlanted.otf") format("opentype");
-}
-
 html {
 	font-size: 16px;
+	padding: 0.25rem 0.5rem;
 }
 
 @media print {
 	html {
-		font-size: 16px;
+		font-size: 13px;
+		padding: 0;
 	}
 }
 
@@ -64,12 +26,13 @@ article p {
 article.article header {
 }
 article.article header h1 {
-	font-family: 'IM Fell English', serif;
-	font-size: 2.25rem;
+	font-family: 'Prata', serif;
+	font-weight: normal;
+	font-size: 2.5rem;
 }
 article.article header h2 {
-	font-family: sans-serif;
-	font-weight: lighter;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
 	font-size: 1.25rem;
 	
 	color: rgba(150, 150, 150, 1);
@@ -85,26 +48,54 @@ article.article header h3 {
 	color: rgba(128, 128, 192, 1);
 }
 
-/* kicker */
 @media print {    
+	/* kicker */
     article.article header h3 {
         display: none !important;
     }
+    
+    article.article aside > div {
+    	padding-right: 0 !important;
+    }
 }
 
+article.article a {
+	text-decoration: none;
+	color: red;
+}
 
 article.article hgroup {
-	margin-top: 2.0rem;
+	margin-top: 2.5rem;
 }
 
 article.article hgroup h2 {
-	font-family: sans-serif;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	font-size: 2.0rem;
 }
 
 article.article address {
 	margin-top: 1.0rem;
 	margin-bottom: 2.0rem;
 	font-size: 0.8rem;
+	font-style: normal;
+}
+
+article.article address > div {
+	display: inline-block;
+	margin-right: 2rem;
+}
+
+article.article address .title {
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	/*font-style: italic;*/
+	color: rgba(0,0,0,0.5);	
+}
+
+article.article address .author {
+	font-family: "Merriweather", serif;
+	font-weight: bold;
 }
 
 article.article footer {
@@ -125,57 +116,56 @@ article.article footer p {
 }
 
 article.article {
-	/*font-family: "XCharter-Regular", serif;*/
 	font-family: "Merriweather", serif;
 	font-weight: normal;
 	font-style: normal;
 }
-/*
-article.article em {
-	font-family: "XCharter-Italic", serif;
-	font-weight: normal;
-	font-style: normal;
-}
-
-article.article strong {
-	font-family: "XCharter-Bold", serif;
-	font-weight: normal;
-	font-style: normal;
-}
-*/
 
 
 article.article p {
-	margin-top: 1.25rem;
-	line-height: 1.65rem;
+	margin-top: 1.3rem;
+	line-height: 1.6rem;
 	
 	font-size: 1.0rem;
 	
+	text-align: justify;
 	text-rendering: optimizelegibility;
 	word-break: break-word;
+	hyphens: auto;
 	overflow-wrap: break-word;
 	
-	color: rgba(42, 42, 42, 1);
+	color: rgba(44, 44, 44, 1);
 	
 	/*letter-spacing: 0.1rem;*/ /* Cool, gives a monospaced look*/
 }
 
 
 article.article aside {
-	margin-top: 1.5rem;
-	padding: 0.5rem;
+	margin-top: 2.3rem;
+	margin-left: 2.0rem;
+	margin-bottom: 1.0rem;
+	padding: 0.6rem 1.3rem;
 	font-size: 1.0rem;
 
 	width: 25%;
 	float: right;
+
+	text-align: justify;
+	text-rendering: optimizelegibility;
 	
 	font-style: italic;
+	font-weight: normal;
 	
-	margin-left: 1.0rem;
-	border-left: 4px solid green;
-	background: rgba(0, 0, 0, 0.05);
+	border-left: 5px solid orange;
+	background: rgba(0, 0, 0, 0.075);
+	color: rgba(88, 88, 88, 1);
+	box-shadow: -2px 0 3px rgba(0,0,0,0.1);
 }
 
+
+article.article span.lit {
+	background: rgba(0, 0, 0, 0.1);
+}
 
 article.plan {
 	font-family: monospace;
