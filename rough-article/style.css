@@ -37,6 +37,16 @@
 	src: url("font/XCharter-BoldSlanted.otf") format("opentype");
 }
 
+html {
+	font-size: 18px;
+}
+
+@media print {
+	html {
+		font-size: 15px;
+	}
+}
+
 article h1,
 article h2,
 article h3,
@@ -53,27 +63,63 @@ article.article header {
 }
 article.article header h1 {
 	font-family: 'IM Fell English', serif;
-	font-size: 2.5em;
+	font-size: 2.25rem;
 }
 article.article header h2 {
 	font-family: sans-serif;
 	font-weight: lighter;
-	font-size: 1.25em;
+	font-size: 1.25rem;
 	
 	color: rgba(150, 150, 150, 1);
 }
+/* kicker */
 article.article header h3 {
 	font-family: sans-serif;
 	font-weight: lighter;
-	font-size: 0.8em;
-	margin-bottom: 1em;
+	font-size: 0.8rem;
+	margin-bottom: 1.0rem;
 	text-decoration: underline;
 	
 	color: rgba(128, 128, 192, 1);
 }
 
+/* kicker */
+@media print {    
+    article.article header h3 {
+        display: none !important;
+    }
+}
+
+
 article.article hgroup {
-	margin-top: 2.0em;
+	margin-top: 2.0rem;
+}
+
+article.article hgroup h2 {
+	font-family: sans-serif;
+}
+
+article.article address {
+	margin-top: 1.0rem;
+	margin-bottom: 2.0rem;
+	font-size: 0.8rem;
+}
+
+article.article footer {
+	margin-top: 1.0f;
+}
+
+article.article footer img {
+	float: left;
+	padding: 0.5rem;
+	padding-left: 0;
+	/*margin-right: 0.5em;*/
+}
+
+article.article footer p {
+	font-family: sans-serif;
+	color: rgba(0,0,0,0.5);	
+	font-size: 0.75rem;
 }
 
 article.article {
@@ -97,10 +143,10 @@ article.article strong {
 
 
 article.article p {
-	margin-top: 1.5em;
-	line-height: 1.35em;
+	margin-top: 1.25rem;
+	line-height: 1.35rem;
 	
-	font-size: 20px;
+	font-size: 1.0rem;
 	
 	text-rendering: optimizelegibility;
 	word-break: break-word;
@@ -108,19 +154,23 @@ article.article p {
 	
 	color: rgba(42, 42, 42, 1);
 	
-	/*letter-spacing: 0.1em;*/ /* Cool, gives a monospaced look*/
+	/*letter-spacing: 0.1rem;*/ /* Cool, gives a monospaced look*/
 }
 
 
 article.article aside {
-	width: 20%;
+	margin-top: 1.5rem;
+	padding: 0.5rem;
+	font-size: 1.0rem;
+
+	width: 25%;
 	float: right;
 	
 	font-style: italic;
 	
-	margin-left: 10px;
-	padding-left: 10px;
+	margin-left: 1.0rem;
 	border-left: 4px solid green;
+	background: rgba(0, 0, 0, 0.05);
 }
 
 
@@ -128,6 +178,16 @@ article.plan {
 	font-family: monospace;
 }
 
+article.plan p {
+	margin-top: 1.0rem;
+}
+
 section article:not(:first-child) {
-	margin-top: 2.0em;
+	margin-top: 3.0rem;
+}
+
+@media print {
+	article {
+		page-break-after: always;
+	}
 }
