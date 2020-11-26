@@ -1,0 +1,133 @@
+
+@font-face {
+	font-family: "XCharter-Regular";
+	font-weight: normal;
+	font-style: normal;
+	src: url("font/XCharter-Roman.otf") format("opentype");
+}
+@font-face {
+	font-family: "XCharter-Italic";
+	font-weight: normal;
+	font-style: italic;
+	src: url("font/XCharter-Italic.otf") format("opentype");
+}
+@font-face {
+	font-family: "XCharter-Bold";
+	font-weight: bold;
+	font-style: normal;
+	src: url("font/XCharter-Bold.otf") format("opentype");
+}
+@font-face {
+	font-family: "XCharter-BoldItalic";
+	font-weight: bold;
+	font-style: italic;
+	src: url("font/XCharter-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "XCharter-Oblique";
+	font-weight: normal;
+	font-style: oblique;
+	src: url("font/XCharter-Slanted.otf") format("opentype");
+}
+@font-face {
+	font-family: "XCharter-BoldOblique";
+	font-weight: bold;
+	font-style: oblique;
+	src: url("font/XCharter-BoldSlanted.otf") format("opentype");
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6,
+article div,
+article p {
+	margin: 0;
+	padding: 0;
+}
+
+article.article header {
+}
+article.article header h1 {
+	font-family: 'IM Fell English', serif;
+	font-size: 2.5em;
+}
+article.article header h2 {
+	font-family: sans-serif;
+	font-weight: lighter;
+	font-size: 1.25em;
+	
+	color: rgba(150, 150, 150, 1);
+}
+article.article header h3 {
+	font-family: sans-serif;
+	font-weight: lighter;
+	font-size: 0.8em;
+	margin-bottom: 1em;
+	text-decoration: underline;
+	
+	color: rgba(128, 128, 192, 1);
+}
+
+article.article hgroup {
+	margin-top: 2.0em;
+}
+
+article.article {
+	font-family: "XCharter-Regular", serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+article.article em {
+	font-family: "XCharter-Italic", serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+article.article strong {
+	font-family: "XCharter-Bold", serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+article.article p {
+	margin-top: 1.5em;
+	line-height: 1.35em;
+	
+	font-size: 20px;
+	
+	text-rendering: optimizelegibility;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	
+	color: rgba(42, 42, 42, 1);
+	
+	/*letter-spacing: 0.1em;*/ /* Cool, gives a monospaced look*/
+}
+
+
+article.article aside {
+	width: 20%;
+	float: right;
+	
+	font-style: italic;
+	
+	margin-left: 10px;
+	padding-left: 10px;
+	border-left: 4px solid green;
+}
+
+
+article.plan {
+	font-family: monospace;
+}
+
+section article:not(:first-child) {
+	margin-top: 2.0em;
+}
