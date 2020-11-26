@@ -99,20 +99,24 @@ article.article address .author {
 }
 
 article.article footer {
-	margin-top: 1.0f;
+	margin-top: 1.5rem;
+	padding-top: 0.5rem;
+	border-top: 1px solid rgba(0,0,0,0.25);
+	overflow: hidden;
+	display: inline-block;
+	width: 60%;
 }
 
 article.article footer img {
 	float: left;
-	padding: 0.5rem;
-	padding-left: 0;
-	/*margin-right: 0.5em;*/
+	padding-right: 1.0rem;
 }
 
-article.article footer p {
+article.article footer div {
 	font-family: sans-serif;
 	color: rgba(0,0,0,0.5);	
-	font-size: 0.75rem;
+	font-size: 0.8rem;
+	text-align: justify;
 }
 
 article.article {
@@ -123,8 +127,8 @@ article.article {
 
 
 article.article p {
-	margin-top: 1.3rem;
-	line-height: 1.6rem;
+	margin-top: 1.6rem;
+	line-height: 1.65rem;
 	
 	font-size: 1.0rem;
 	
@@ -141,13 +145,13 @@ article.article p {
 
 
 article.article aside {
-	margin-top: 2.3rem;
+	margin-top: 2.6rem;
 	margin-left: 2.0rem;
 	margin-bottom: 1.0rem;
-	padding: 0.6rem 1.3rem;
+	padding: 0.75rem 1.5rem;
 	font-size: 1.0rem;
 
-	width: 25%;
+	max-width: 30%;
 	float: right;
 
 	text-align: justify;
@@ -164,7 +168,8 @@ article.article aside {
 
 
 article.article span.lit {
-	background: rgba(0, 0, 0, 0.1);
+	background: rgba(0, 0, 0, 0.15);
+	border: 3px solid rgba(0,0,0,0.01)
 }
 
 article.plan {
