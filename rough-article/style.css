@@ -1,4 +1,6 @@
 
+
+
 @font-face {
 	font-family: "XCharter-Regular";
 	font-weight: normal;
@@ -38,12 +40,12 @@
 }
 
 html {
-	font-size: 18px;
+	font-size: 16px;
 }
 
 @media print {
 	html {
-		font-size: 15px;
+		font-size: 16px;
 	}
 }
 
@@ -123,11 +125,12 @@ article.article footer p {
 }
 
 article.article {
-	font-family: "XCharter-Regular", serif;
+	/*font-family: "XCharter-Regular", serif;*/
+	font-family: "Merriweather", serif;
 	font-weight: normal;
 	font-style: normal;
 }
-
+/*
 article.article em {
 	font-family: "XCharter-Italic", serif;
 	font-weight: normal;
@@ -139,12 +142,12 @@ article.article strong {
 	font-weight: normal;
 	font-style: normal;
 }
-
+*/
 
 
 article.article p {
 	margin-top: 1.25rem;
-	line-height: 1.35rem;
+	line-height: 1.65rem;
 	
 	font-size: 1.0rem;
 	
