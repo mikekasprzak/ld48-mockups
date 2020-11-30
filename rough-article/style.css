@@ -1,13 +1,16 @@
 
-html {
+body {
 	font-size: 16px;
-	padding: 0.25rem 0.5rem;
+	padding: 0;
+	margin: 0;
 }
 
 @media print {
-	html {
-		font-size: 13px;
-		padding: 0;
+	body {
+		font-size: 13px !important;
+	}
+	article {
+		page-break-after: always;
 	}
 }
 
@@ -21,6 +24,12 @@ article div,
 article p {
 	margin: 0;
 	padding: 0;
+}
+
+article.article {
+	font-family: "Merriweather", serif;
+	font-weight: normal;
+	font-style: normal;
 }
 
 article.article header {
@@ -119,13 +128,6 @@ article.article footer div {
 	text-align: justify;
 }
 
-article.article {
-	font-family: "Merriweather", serif;
-	font-weight: normal;
-	font-style: normal;
-}
-
-
 article.article p {
 	margin-top: 1.6rem;
 	line-height: 1.65rem;
@@ -146,7 +148,7 @@ article.article p {
 
 article.article aside {
 	margin-top: 2.6rem;
-	margin-left: 2.0rem;
+	margin-left: 3.0rem;
 	margin-bottom: 1.0rem;
 	padding: 0.75rem 1.5rem;
 	font-size: 1.0rem;
@@ -182,10 +184,4 @@ article.plan p {
 
 section article:not(:first-child) {
 	margin-top: 3.0rem;
-}
-
-@media print {
-	article {
-		page-break-after: always;
-	}
 }
