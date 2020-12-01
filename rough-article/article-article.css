@@ -1,0 +1,222 @@
+
+:root {
+	--article-text-color: rgba(43, 43, 43, 1);
+	--article-light-text-color: rgba(85, 85, 85, 1);
+	--article-lighter-text-color: rgba(128, 128, 128, 1);
+	--article-verylight-text-color: rgba(170, 170, 170, 1);
+	
+	--article-aside-background: rgba(0, 0, 0, 0.075);
+	--article-aside-color: orange;
+
+	--article-font: "Merriweather", serif;
+	--article-font-weight: 300;
+	--article-serif-font: 'Prata', serif;
+	--article-serif-font-weight: normal;
+	--article-sans-serif-font: 'Roboto', sans-serif;
+	--article-sans-serif-font-weight: 300;
+	--article-condensed-sans-serif-font: 'Oswald', sans-serif;
+	--article-condensed-sans-serif-font-weight: normal;
+}
+
+article.article {
+	font-family: var(--article-font);
+	font-weight: var(--article-font-weight);
+	font-style: normal;
+
+	/* Counters for auto-numbering */
+	counter-reset: CHAPTER_NUM SECTION_NUM FIGURE_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
+}
+
+article.article header {
+}
+article.article header h1 {
+	font-family: var(--article-serif-font);
+	font-weight: var(--article-serif-font-weight);
+	font-size: 2.5rem;
+}
+article.article header h2 {
+	font-family: var(--article-sans-serif-font);
+	font-weight: var(--article-sans-serif-font-weight);
+	font-size: 1.25rem;
+	
+	color: var(--article-verylight-text-color);
+}
+
+
+article.article a {
+	text-decoration: none;
+	color: red;
+}
+
+article.article hgroup {
+	margin-top: 2.5rem;
+}
+
+/* h1 reserved for chapters */
+
+article.article hgroup h2,
+article.article hgroup h3,
+article.article hgroup h4,
+article.article hgroup h5,
+article.article hgroup h6 {
+	font-family: var(--article-sans-serif-font);
+	font-weight: 300;
+}
+
+article.article hgroup h2 {
+	font-size: 2.0rem;
+}
+article.article hgroup h3 {
+	font-size: 1.75rem;
+}
+article.article hgroup h4 {
+	font-size: 1.5rem;
+}
+
+article.article hgroup h5,
+article.article hgroup h6 {
+	font-size: 1.25rem;
+	font-style: italic;
+}
+
+article.article hgroup h2:before {
+	counter-increment: SECTION_NUM;
+	counter-reset: SUBSECTION_NUM SUBSUBSECTION_NUM;
+	
+	content: counter(SECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+
+article.article hgroup h3:before {
+	counter-increment: SUBSECTION_NUM;
+	counter-reset: SUBSUBSECTION_NUM;
+	
+	content: counter(SECTION_NUM) "." counter(SUBSECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+
+article.article hgroup h4:before {
+	counter-increment: SUBSUBSECTION_NUM;
+	
+	content: counter(SECTION_NUM) "." counter(SUBSECTION_NUM) "." counter(SUBSUBSECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+
+article.article address {
+	margin-top: 1.0rem;
+	margin-bottom: 2.0rem;
+	font-size: 0.8rem;
+	font-style: normal;
+}
+
+article.article address > div {
+	display: inline-block;
+	margin-right: 2rem;
+}
+
+article.article address .title {
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	/*font-style: italic;*/
+	color: var(--article-lighter-text-color);
+}
+
+article.article address .author {
+	font-weight: bold;
+}
+
+article.article footer {
+	margin-top: 1.5rem;
+	padding-top: 0.5rem;
+	border-top: 1px solid var(--article-verylight-text-color);;
+	overflow: hidden;
+	display: inline-block;
+	width: 60%;
+}
+
+article.article footer img {
+	float: left;
+	padding-right: 1.0rem;
+}
+
+article.article footer div {
+	font-family: sans-serif;
+	color: var(--article-lighter-text-color);
+	font-size: 0.8rem;
+	text-align: justify;
+}
+
+/* Justified content */
+article.article p,
+article.article aside {
+	text-align: justify;
+	text-rendering: optimizelegibility;
+	word-break: break-word;
+	hyphens: auto;
+	overflow-wrap: break-word;
+}
+
+/* Paragraphs */
+article.article p {
+	margin-top: 1.6rem;
+	line-height: 1.65rem;
+	
+	/* Font */
+	font-size: 1.0rem;
+	color: var(--article-text-color);
+}
+
+
+article.article aside {
+	margin-top: 1.6rem;
+	margin-bottom: 1.0rem;
+	padding: 0.75rem 1.5rem;
+	max-width: 30%;
+
+	background: var(--article-aside-background);
+	color: var(--article-light-text-color);
+	
+	/* Font */
+	font-size: 1.0rem;
+	font-style: italic;
+	font-weight: normal;	
+}
+
+article.article aside, /* Default */
+article.article aside.right {
+	float: right;
+	border-left: 5px solid var(--article-aside-color);
+	margin-left: 3.0rem;	
+	border-right: 0;
+	margin-right: 0;
+}
+article.article aside.left {
+	float: left;
+	border-right: 5px solid var(--article-aside-color);
+	margin-right: 3.0rem;	
+	border-left: 0;
+	margin-left: 0;
+}
+
+/* On every-other page, default asides flip sides (so they look more like a book) */
+@media print {    
+	/*
+	article.article aside {
+		float: left;
+		border-right: 5px solid var(--article-aside-color);
+		margin-right: 3.0rem;			
+	}
+	*/
+    article.article aside > div {
+    	padding-right: 0 !important;
+    }
+}
+
+
+
+
+
+article.article span.lit {
+	background: rgba(0, 0, 0, 0.15);
+	border: 3px solid rgba(0,0,0,0.01)
+}

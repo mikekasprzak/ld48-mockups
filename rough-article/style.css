@@ -1,29 +1,57 @@
 
 body {
 	font-size: 16px;
-	padding: 0;
-	margin: 0;
+	
+	/* https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	text-rendering: optimizeSpeed;
+	line-height: 1.5;
 }
+
 
 @media print {
 	body {
 		font-size: 13px !important;
 	}
+	br,
 	article {
 		page-break-after: always;
 	}
 }
 
-article h1,
-article h2,
-article h3,
-article h4,
-article h5,
-article h6,
-article div,
-article p {
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+span,
+nav,
+aside,
+figure,
+figcaption,
+blockquote,
+address,
+article,
+section {
 	margin: 0;
 	padding: 0;
+}
+
+
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+}
+
+
+img {
+	max-width: 100%;
+	display: block;
 }
 
 
