@@ -58,3 +58,9 @@ img {
 section article:not(:first-child) {
 	margin-top: 3.0rem;
 }
+
+/* target the children, so we can override it */
+section article > * {
+	max-width: 640px; /*1080px*/
+	margin: 0 auto;
+}
