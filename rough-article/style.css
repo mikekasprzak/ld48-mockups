@@ -1,7 +1,9 @@
 
+html {
+	font-size: 16px;	
+}
+
 body {
-	font-size: 16px;
-	
 	/* https://dev.to/hankchizljaw/a-modern-css-reset-6p3 */
 	min-height: 100vh;
 	scroll-behavior: smooth;
@@ -11,12 +13,17 @@ body {
 
 
 @media print {
-	body {
-		font-size: 13px !important;
+	html {
+		font-size: 10pt !important;
 	}
-	br,
+
 	article {
 		page-break-after: always;
+	}
+	
+	/* only print main */
+	body > :not(main) {
+		display: none !important;
 	}
 }
 
@@ -32,6 +39,7 @@ h6,
 div,
 span,
 nav,
+main,
 aside,
 figure,
 figcaption,
@@ -55,12 +63,35 @@ img {
 }
 
 
-section article:not(:first-child) {
+
+/*main article:not(:first-child) {*/
+main article {
 	margin-top: 3.0rem;
 }
 
-/* target the children, so we can override it */
-section article > * {
-	max-width: 640px; /*1080px*/
-	margin: 0 auto;
+
+
+/* target the children instead of the whole section, so we can override it per element */
+@media screen {
+	main:not(.full) article {
+		max-width: 800px; /*1080px*/
+		margin: 0 auto;		
+	}
+	
+	main.full article > * {
+		max-width: 800px; /*1080px*/
+		margin: 0 auto;
+	}
+	
+	/* Top-level figures will fill the width. Wrap them in a div to fit article width */
+	main.full article > figure,
+	main.full article > figcaption {
+		max-width: inherit;
+	}
+}
+
+@media print {
+	main article {
+		margin: 0 2rem;
+	}
 }

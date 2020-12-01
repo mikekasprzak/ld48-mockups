@@ -27,6 +27,7 @@ article.article {
 	counter-reset: CHAPTER_NUM SECTION_NUM FIGURE_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
 }
 
+
 article.article header {
 }
 article.article header h1 {
@@ -44,9 +45,10 @@ article.article header h2 {
 
 
 article.article a {
-	text-decoration: none;
+	/*text-decoration: none;*/
 	color: red;
 }
+
 
 article.article hgroup {
 	margin-top: 2.5rem;
@@ -126,12 +128,11 @@ article.article address .author {
 }
 
 article.article footer {
-	margin-top: 1.5rem;
+	margin-top: 2rem;
 	padding-top: 0.5rem;
-	border-top: 1px solid var(--article-verylight-text-color);;
+	border-top: 1px solid var(--article-verylight-text-color);
 	overflow: hidden;
-	display: inline-block;
-	width: 60%;
+	/*width: 60%;*/
 }
 
 article.article footer img {
@@ -168,6 +169,8 @@ article.article p {
 
 
 article.article aside {
+	-webkit-print-color-adjust: exact !important;
+	
 	margin-top: 1.6rem;
 	margin-bottom: 1.0rem;
 	padding: 1rem 2rem;
@@ -196,20 +199,6 @@ article.article aside.left {
 	margin-right: 2rem;	
 	border-left: 0;
 	margin-left: -2rem;
-}
-
-/* On every-other page, default asides flip sides (so they look more like a book) */
-@media print {    
-	/*
-	article.article aside {
-		float: left;
-		border-right: 5px solid var(--article-aside-color);
-		margin-right: 3.0rem;			
-	}
-	*/
-    article.article aside > div {
-    	padding-right: 0 !important;
-    }
 }
 
 /* fix flow of floats */

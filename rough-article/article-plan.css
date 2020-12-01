@@ -5,3 +5,13 @@ article.plan {
 article.plan p {
 	margin-top: 1.0rem;
 }
+
+article.plan h1:before {
+	content: "# ";
+}
+article.plan h2:before {
+	content: "## ";
+}
+article.plan h3:before {
+	content: "### ";
+}

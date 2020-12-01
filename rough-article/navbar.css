@@ -1,0 +1,14 @@
+
+section.navbar {
+	font-size: 2rem;
+	line-height: 3rem;
+	background: rgba(22, 22, 22, 1);
+	color: white;
+	
+	font-family: sans-serif;
+}
+
+section.navbar div {
+	max-width: 800px;
+	margin: 0 auto;
+}
