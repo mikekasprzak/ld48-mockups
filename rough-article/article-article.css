@@ -168,26 +168,19 @@ article.article.chaptered figcaption:before {
 
 
 
-article.article > address {
-	/*margin-bottom: 2.0rem;*/
+article.article > header > div {
 	font-size: 0.8rem;
 	font-style: normal;
 }
-
-article.article > address > div {
-	display: inline-block;
-	margin-right: 2rem;
-}
-
-article.article > address .title {
+article.article > header > div .title {
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
 	color: var(--article-lighter-text-color);
 }
-
-article.article > address .author {
+article.article > header > div .author {
 	font-weight: bold;
 }
+
 
 article.article > footer {
 	padding-top: 0.5rem;
