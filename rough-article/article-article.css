@@ -18,13 +18,14 @@
 	--article-condensed-sans-serif-font-weight: normal;
 }
 
+
 article.article {
 	font-family: var(--article-font);
 	font-weight: var(--article-font-weight);
 	font-style: normal;
 
 	/* Counters for auto-numbering */
-	counter-reset: CHAPTER_NUM SECTION_NUM FIGURE_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
+	counter-reset: CHAPTER_NUM FIGURE_NUM SECTION_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
 }
 
 
@@ -49,104 +50,123 @@ article.article a {
 }
 
 
-/* h1 reserved for chapters */
+/* WHOA! */
+/*
+@media screen and (prefers-color-scheme: dark) {
+	body {
+		background: black;
+		color: white;
+	}
+}
+*/
 
-article.article section > h1, /* Chapter */
-article.article section > h2, /* Numbered Sections */
-article.article section > h3,
-article.article section > h4,
-article.article section > h5, /* Minor Section */
-article.article section > h6 {
+
+article.article > h1, /* Chapter */
+article.article > h2, /* Numbered Sections */
+article.article > h3,
+article.article > h4,
+article.article > h5, /* Minor Section */
+article.article > h6 {
 	font-family: var(--article-sans-serif-font);
 	font-weight: 300;
 }
 
-article.article section > h1 {
+article.article > h1 {
 	font-weight: normal;
 }
 
-article.article section > h1,
-article.article section > h2 {
+article.article > h1,
+article.article > h2 {
 	font-size: 2.25rem;
 	padding-top: 1.5rem;
 }
-article.article section > h3 {
+article.article > h3 {
 	font-size: 2.0rem;
 	padding-top: 0.75rem;
 }
-article.article section > h4 {
+article.article > h4 {
 	font-size: 1.75rem;
 	padding-top: 0.5rem;
 }
-article.article section > h5,
-article.article section > h6 {
+article.article > h5,
+article.article > h6 {
 	font-size: 1.5rem;
 	font-style: italic;
 	margin-bottom: 0.5rem;
 }
 
-/*
-article.article > h1 + *,
-article.article > h2 + *,
+
 article.article > h3 + *,
+article.article > h3 + :not(p) + p,
 article.article > h4 + *,
-article.article > h5 + *,
-article.article > h6 + *,
-*/
-/*article.article > :not(p) + p {*/
-article.article > section {
-	break-inside: avoid;
-}
-
-
-article.article > h1 + *,
-article.article > h1 + :not(p) + p,
-article.article > h2 + *,
-article.article > h2 + :not(p) + p {
-	/*break-inside: avoid;*/
-}
-article.article section > h3 + *,
-article.article section > h3 + :not(p) + p,
-article.article section > h4 + *,
-article.article section > h4 + :not(p) + p {
+article.article > h4 + :not(p) + p {
 	margin-top: 1.0rem;
 	/*break-inside: avoid;*/
 }
-article.article section > h5 + *,
-article.article section > h5 + :not(p) + p,
-article.article section > h6 + *,
-article.article section > h6 + :not(p) + p {
+article.article > h5 + *,
+article.article > h5 + :not(p) + p,
+article.article > h6 + *,
+article.article > h6 + :not(p) + p {
 	margin-top: 0.5rem;
 	/*break-inside: avoid;*/
 }
 
-article.article section > h1:before {
+article.article > h1:before {
 	counter-increment: CHAPTER_NUM;
-	counter-reset: SECTION_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
+	counter-reset: FIGURE_NUM SECTION_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
 }
-
-article.article section > h2:before {
+article.article > h2:before {
 	counter-increment: SECTION_NUM;
 	counter-reset: SUBSECTION_NUM SUBSUBSECTION_NUM;
-	
+}
+article.article > h3:before {
+	counter-increment: SUBSECTION_NUM;
+	counter-reset: SUBSUBSECTION_NUM;
+}
+article.article > h4:before {
+	counter-increment: SUBSUBSECTION_NUM;
+}
+article.article figure:before {
+	counter-increment: FIGURE_NUM;
+}
+
+
+article.article.numbered > h2:before {
 	content: counter(SECTION_NUM) ". ";
 	margin-right: 1rem;
 }
-
-article.article section > h3:before {
-	counter-increment: SUBSECTION_NUM;
-	counter-reset: SUBSUBSECTION_NUM;
-	
+article.article.numbered > h3:before {
 	content: counter(SECTION_NUM) "." counter(SUBSECTION_NUM) ". ";
 	margin-right: 1rem;
 }
-
-article.article section > h4:before {
-	counter-increment: SUBSUBSECTION_NUM;
-	
+article.article.numbered > h4:before {
 	content: counter(SECTION_NUM) "." counter(SUBSECTION_NUM) "." counter(SUBSUBSECTION_NUM) ". ";
 	margin-right: 1rem;
 }
+article.article.numbered figcaption:before {
+	content: "Figure " counter(FIGURE_NUM) ". ";
+	margin-right: 1rem;
+}
+
+
+article.article.chaptered > h2:before {
+	content: counter(CHAPTER_NUM) "." counter(SECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+article.article.chaptered > h3:before {
+	content: counter(CHAPTER_NUM) "." counter(SECTION_NUM) "." counter(SUBSECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+article.article.chaptered > h4:before {
+	content: counter(CHAPTER_NUM) "." counter(SECTION_NUM) "." counter(SUBSECTION_NUM) "." counter(SUBSUBSECTION_NUM) ". ";
+	margin-right: 1rem;
+}
+article.article.chaptered figcaption:before {
+	content: "Figure " counter(CHAPTER_NUM) "." counter(FIGURE_NUM) ". ";
+	margin-right: 1rem;
+}
+
+
 
 article.article > address {
 	/*margin-bottom: 2.0rem;*/
@@ -162,7 +182,6 @@ article.article > address > div {
 article.article > address .title {
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
-	/*font-style: italic;*/
 	color: var(--article-lighter-text-color);
 }
 
@@ -174,7 +193,6 @@ article.article > footer {
 	padding-top: 0.5rem;
 	border-top: 1px solid var(--article-verylight-text-color);
 	overflow: hidden;
-	/*width: 60%;*/
 }
 
 article.article > footer img {
@@ -190,17 +208,18 @@ article.article > footer div {
 }
 
 /* Justified content */
-article.article p,
+article.article > p,
 article.article aside {
 	text-align: justify;
 	text-rendering: optimizelegibility;
 	word-break: break-word;
-	hyphens: auto;
 	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
 }
 
 /* Paragraphs */
-article.article p {
+article.article > p {
 	line-height: 1.65rem;
 	
 	/* Font */
