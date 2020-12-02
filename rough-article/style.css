@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+	padding: 0;
+}
 
 html {
 	font-size: 16px;	
@@ -26,8 +30,8 @@ body {
 	}
 
 	article p {
-		orphans: 2;	/* at least this many lines on previous page */
-		widows: 2;  /* at least this many lines on next page */
+		orphans: 3;	/* at least this many lines on previous page */
+		widows: 3;  /* at least this many lines on next page */
 	}
 
 	article h1,	 /* Chapter */
@@ -36,9 +40,17 @@ body {
 	article h4,
 	article h5,  /* Minor Section (no numbers) */
 	article h6,
-	article div, /* Wraps aside and figure */
+	/*article div, /* Wraps aside and figure */
 	article figure {
-		break-after: avoid-page; /* Widows and Orphans */
+		/* should avoid leaving a lonely header, but not working */
+		break-after: avoid; /*avoid-page;*/
+	}
+	
+	article img,
+	article figure,
+	article picture {
+		/* should avoid printers splitting images across pages, but untested */
+		break-inside: avoid;
 	}
 
 	article,
@@ -56,31 +68,6 @@ body {
 	}
 }
 
-/*
-body,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-span,
-nav,
-main,
-aside,
-figure,
-figcaption,
-blockquote,
-address,
-article,
-section*/
-* {
-	margin: 0;
-	padding: 0;
-}
-
 
 a:not([class]) {
 	text-decoration-skip-ink: auto;
@@ -91,19 +78,6 @@ img {
 	max-width: 100%;
 	display: block;
 }
-
-
-
-/*main article:not(:first-child) {*/
-main article {
-	margin-top: 3.0rem;
-}
-main article > * + *,
-main article > section > * + * { 
-	margin-top: 1.5rem;
-	margin-bottom: 0.5rem;
-}
-
 
 
 /* target the children instead of the whole section, so we can override it per element */
@@ -143,3 +117,25 @@ main article > section > * + * {
 @page :first {
 	
 }
+
+
+
+
+
+
+
+/****** layout specific styles *******/
+
+/*main article:not(:first-child) {*/
+main article {
+	margin-top: 3.0rem;
+}
+/* Owl selector (* + *): any pair of elements */
+main article > * + *,
+main article > div > * + *,
+main article > section > * + * {
+	margin-top: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+
