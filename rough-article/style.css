@@ -13,7 +13,7 @@ body {
 
 @media print {
 	html {
-		font-size: 10pt !important;
+		font-size: 9.5pt !important;
 	}
 
 	article {
@@ -76,9 +76,10 @@ img {
 main article {
 	margin-top: 3.0rem;
 }
-main article > * + * { 
+main article > * + *,
+main article > section > * + * { 
 	margin-top: 1.5rem;
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.5rem;
 }
 
 

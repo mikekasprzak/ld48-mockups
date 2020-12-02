@@ -30,67 +30,102 @@ article.article {
 
 article.article header {
 }
-article.article header h1 {
+article.article header > h1 {
 	font-family: var(--article-serif-font);
 	font-weight: var(--article-serif-font-weight);
-	font-size: 2.5rem;
+	font-size: 2.75rem;
 }
-article.article header h2 {
+article.article header > h2 {
 	font-family: var(--article-sans-serif-font);
 	font-weight: var(--article-sans-serif-font-weight);
-	font-size: 1.25rem;
+	font-size: 1.5rem;
 	
 	color: var(--article-verylight-text-color);
 }
 
 
 article.article a {
-	/*text-decoration: none;*/
 	color: red;
 }
 
 
-article.article hgroup {
-	/*margin-top: 2.5rem;*/
-}
-
 /* h1 reserved for chapters */
 
-article.article hgroup h2,
-article.article hgroup h3,
-article.article hgroup h4,
-article.article hgroup h5,
-article.article hgroup h6 {
+article.article section > h1, /* Chapter */
+article.article section > h2, /* Numbered Sections */
+article.article section > h3,
+article.article section > h4,
+article.article section > h5, /* Minor Section */
+article.article section > h6 {
 	font-family: var(--article-sans-serif-font);
 	font-weight: 300;
 }
 
-article.article hgroup h2 {
-	font-size: 2.0rem;
+article.article section > h1 {
+	font-weight: normal;
+}
+
+article.article section > h1,
+article.article section > h2 {
+	font-size: 2.25rem;
 	padding-top: 1.5rem;
 }
-article.article hgroup h3 {
+article.article section > h3 {
+	font-size: 2.0rem;
+	padding-top: 0.75rem;
+}
+article.article section > h4 {
 	font-size: 1.75rem;
 	padding-top: 0.5rem;
 }
-article.article hgroup h4 {
+article.article section > h5,
+article.article section > h6 {
 	font-size: 1.5rem;
-}
-
-article.article hgroup h5,
-article.article hgroup h6 {
-	font-size: 1.25rem;
 	font-style: italic;
-	margin-bottom: 0;
+	margin-bottom: 0.5rem;
 }
 
 /*
-article.article h2 + p {
-	margin-top: 0.5rem;
-}
+article.article > h1 + *,
+article.article > h2 + *,
+article.article > h3 + *,
+article.article > h4 + *,
+article.article > h5 + *,
+article.article > h6 + *,
 */
+/*article.article > :not(p) + p {*/
+article.article > section {
+	break-inside: avoid;
+}
 
-article.article hgroup h2:before {
+
+article.article > h1 + *,
+article.article > h1 + :not(p) + p,
+article.article > h2 + *,
+article.article > h2 + :not(p) + p {
+	/*break-inside: avoid;*/
+}
+article.article section > h3 + *,
+article.article section > h3 + :not(p) + p,
+article.article section > h4 + *,
+article.article section > h4 + :not(p) + p {
+	margin-top: 1.0rem;
+	/*break-inside: avoid;*/
+}
+article.article section > h5 + *,
+article.article section > h5 + :not(p) + p,
+article.article section > h6 + *,
+article.article section > h6 + :not(p) + p {
+	margin-top: 0.5rem;
+	/*break-inside: avoid;*/
+}
+
+article.article section > h1:before {
+	counter-increment: CHAPTER_NUM;
+	counter-reset: SECTION_NUM SUBSECTION_NUM SUBSUBSECTION_NUM;
+}
+
+article.article section > h2:before {
 	counter-increment: SECTION_NUM;
 	counter-reset: SUBSECTION_NUM SUBSUBSECTION_NUM;
 	
@@ -98,7 +133,7 @@ article.article hgroup h2:before {
 	margin-right: 1rem;
 }
 
-article.article hgroup h3:before {
+article.article section > h3:before {
 	counter-increment: SUBSECTION_NUM;
 	counter-reset: SUBSUBSECTION_NUM;
 	
@@ -106,48 +141,48 @@ article.article hgroup h3:before {
 	margin-right: 1rem;
 }
 
-article.article hgroup h4:before {
+article.article section > h4:before {
 	counter-increment: SUBSUBSECTION_NUM;
 	
 	content: counter(SECTION_NUM) "." counter(SUBSECTION_NUM) "." counter(SUBSUBSECTION_NUM) ". ";
 	margin-right: 1rem;
 }
 
-article.article address {
+article.article > address {
 	/*margin-bottom: 2.0rem;*/
 	font-size: 0.8rem;
 	font-style: normal;
 }
 
-article.article address > div {
+article.article > address > div {
 	display: inline-block;
 	margin-right: 2rem;
 }
 
-article.article address .title {
+article.article > address .title {
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
 	/*font-style: italic;*/
 	color: var(--article-lighter-text-color);
 }
 
-article.article address .author {
+article.article > address .author {
 	font-weight: bold;
 }
 
-article.article footer {
+article.article > footer {
 	padding-top: 0.5rem;
 	border-top: 1px solid var(--article-verylight-text-color);
 	overflow: hidden;
 	/*width: 60%;*/
 }
 
-article.article footer img {
+article.article > footer img {
 	float: left;
 	padding-right: 1.0rem;
 }
 
-article.article footer div {
+article.article > footer div {
 	font-family: sans-serif;
 	color: var(--article-lighter-text-color);
 	font-size: 0.8rem;
@@ -205,8 +240,7 @@ article.article aside.left {
 }
 
 /* fix flow of floats */
-article.article hgroup,
-article.article footer {
+article.article > footer {
 	clear: both;
 }
 
@@ -214,6 +248,8 @@ article.article footer {
 
 
 article.article span.lit {
+	-webkit-print-color-adjust: exact !important;
+	
 	background: rgba(0, 0, 0, 0.15);
 	border: 3px solid rgba(0,0,0,0.01)
 }
