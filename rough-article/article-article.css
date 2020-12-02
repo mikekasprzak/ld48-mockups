@@ -51,7 +51,7 @@ article.article a {
 
 
 article.article hgroup {
-	margin-top: 2.5rem;
+	/*margin-top: 2.5rem;*/
 }
 
 /* h1 reserved for chapters */
@@ -67,9 +67,11 @@ article.article hgroup h6 {
 
 article.article hgroup h2 {
 	font-size: 2.0rem;
+	padding-top: 1.5rem;
 }
 article.article hgroup h3 {
 	font-size: 1.75rem;
+	padding-top: 0.5rem;
 }
 article.article hgroup h4 {
 	font-size: 1.5rem;
@@ -79,7 +81,14 @@ article.article hgroup h5,
 article.article hgroup h6 {
 	font-size: 1.25rem;
 	font-style: italic;
+	margin-bottom: 0;
 }
+
+/*
+article.article h2 + p {
+	margin-top: 0.5rem;
+}
+*/
 
 article.article hgroup h2:before {
 	counter-increment: SECTION_NUM;
@@ -105,8 +114,7 @@ article.article hgroup h4:before {
 }
 
 article.article address {
-	margin-top: 1.0rem;
-	margin-bottom: 2.0rem;
+	/*margin-bottom: 2.0rem;*/
 	font-size: 0.8rem;
 	font-style: normal;
 }
@@ -128,7 +136,6 @@ article.article address .author {
 }
 
 article.article footer {
-	margin-top: 2rem;
 	padding-top: 0.5rem;
 	border-top: 1px solid var(--article-verylight-text-color);
 	overflow: hidden;
@@ -159,20 +166,16 @@ article.article aside {
 
 /* Paragraphs */
 article.article p {
-	margin-top: 1.6rem;
 	line-height: 1.65rem;
 	
 	/* Font */
-	font-size: 1.0rem;
 	color: var(--article-text-color);
 }
-
 
 article.article aside {
 	-webkit-print-color-adjust: exact !important;
 	
-	margin-top: 1.6rem;
-	margin-bottom: 1.0rem;
+	margin-bottom: 0.5rem; /* Necessary, because asides are always nested */
 	padding: 1rem 2rem;
 	max-width: 30%;
 
