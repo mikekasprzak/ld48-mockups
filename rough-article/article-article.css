@@ -49,6 +49,11 @@ article.article a {
 	color: red;
 }
 
+/* quote blocks */
+article.article q {
+	
+}
+
 
 /* WHOA! */
 /*

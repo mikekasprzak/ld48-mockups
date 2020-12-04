@@ -15,6 +15,54 @@ body {
 	line-height: 1.5;
 }
 
+/*
+** Blocks **
+nav
+section
+article
+aside
+figure
+figcaption
+blockquote (q is poorly supported)
+address (contact information)
+code
+pre
+header
+footer
+hgroup, h1-h6
+head, body, html
+
+
+** Missing Blocks (from Kindle) **
+form
+canvas
+audio, video
+details (expandable additional information, default closed)
+summary (nested inside details block, acts as the heading)
+
+
+** Objects (Void Elements) **
+img (picture is poorly supported)
+hr (line)
+br
+
+
+** Markup **
+a (link, anchor)
+strong (bold)
+em (italics)
+del (deleted/strikethru)
+mark (highlighted text)
+cite (make reference to a creative work, not a person)
+
+kbd (keyboard keys)
+samp (sample code)
+var (variable)
+data (allows you to attach a value to some selection)
+*/
+
+
+
 
 @media print {
 	html {
@@ -131,9 +179,9 @@ main article {
 	margin-top: 3.0rem;
 }
 /* Owl selector (* + *): any pair of elements */
-main article > * + *,
-main article > div > * + *,
-main article > section > * + * {
+main article.article > * + *,
+main article.article > div > * + *,
+main article.article > section > * + * {
 	margin-top: 1.5rem;
 	margin-bottom: 0.5rem;
 }

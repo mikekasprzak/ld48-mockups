@@ -1,0 +1,44 @@
+:root {
+	--book-text-color: black;
+	
+	--book-aside-background: rgba(0, 0, 0, 0.075);
+	--book-aside-color: orange;
+
+	--book-font: "Merriweather", serif;
+	--book-font-weight: 300;
+	--book-serif-font: 'Prata', serif;
+	--book-serif-font-weight: normal;
+	--book-sans-serif-font: 'Roboto', sans-serif;
+	--book-sans-serif-font-weight: 300;
+	--book-condensed-sans-serif-font: 'Oswald', sans-serif;
+	--book-condensed-sans-serif-font-weight: normal;
+}
+
+article.book {
+	font-family: var(--article-font);
+	font-weight: var(--article-font-weight);
+	font-style: normal;
+}
+
+/* Justified content */
+article.book > p,
+article.book aside {
+	text-align: justify;
+	text-rendering: optimizelegibility;
+	word-break: break-word;
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+article.book > p + p,
+article.book > p + :not(p):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) + p {
+    text-indent: 2rem;
+}
+
+article.book aside {
+    float: right;
+    padding: 1rem;
+    margin-left: 3rem;
+    background: var(--book-aside-background);
+}
