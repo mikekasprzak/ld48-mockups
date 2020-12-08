@@ -8,12 +8,14 @@
 <body>
 	<article>
 		<h1>Who am I?</h1>
-		<p id="me"></p>
+		<p id="ua"></p>
+		<p id="ve"></p>
 		<p>Ask again later.</p>
 	</article>
 	<script>
-		var e = document.getElementById('me');
-		e.innerText = navigator.userAgent;
+		document.getElementById('ua').innerText = "User Agent: " + navigator.userAgent;
+		document.getElementById('pl').innerText = "Platform: " + navigator.platform;
+		document.getElementById('ve').innerText = "Vendor: " + navigator.vendor;
 	</script>
 </body>
 </html>
