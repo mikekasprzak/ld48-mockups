@@ -44,7 +44,7 @@ summary (nested inside details block, acts as the heading)
 ** Objects (Void Elements) **
 img (picture is poorly supported)
 hr (line)
-br
+br (<br /> valid)
 
 
 ** Markup **
@@ -70,7 +70,7 @@ data (allows you to attach a value to some selection)
 	}
 
 	article {
-		page-break-after: always;
+		break-after: always;
 		
 		/* These are required, as page margins crop everything */
 		margin-left: 2rem;
@@ -91,7 +91,7 @@ data (allows you to attach a value to some selection)
 	/*article div, /* Wraps aside and figure */
 	article figure {
 		/* should avoid leaving a lonely header, but not working */
-		break-after: avoid; /*avoid-page;*/
+		break-before: avoid-page; /*avoid-page;*/
 	}
 	
 	article img,
